@@ -1,0 +1,12 @@
+** sch_path: /foss/designs/asynchronous-base/xschem/base-joint.sch
+**.subckt base-joint VSS VDD G0 yourturn myturn
+*.ipin G0
+*.ipin myturn
+*.opin yourturn
+*.iopin VDD
+*.iopin VSS
+Mr net1 myturn VSS VSS VDD VDD yourturn sky130_fd_sc_hd__and2_0
+Go net2 yourturn VSS VSS VDD VDD net1 sky130_fd_sc_hd__and2_0
+inverter G0 VSS VSS VDD VDD net2 sky130_fd_sc_hd__clkinv_8
+**.ends
+.end

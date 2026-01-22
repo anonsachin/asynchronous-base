@@ -1,0 +1,41 @@
+** sch_path: /foss/designs/asynchronous-base/xschem/testbench.sch
+**.subckt testbench
+x1 VSS VDD GO yourturn myturn base-joint
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /foss/pdks/sky130A/libs.tech/combined/sky130.lib.spice tt
+.include /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice tt
+
+
+
+
+Vvcc VDD 0 DC 1.8
+Vvss VSS 0 DC 0
+Vin myturn 0 PWL(0ns 0V 10ns 0.8V 12ns 1.3V 14ns 1.8V 110ns 1.8V 120ns 1.3V 122ns 0.8V 124ns 0V)
+Vgo GO 0 PWL(0ns 0V 20ns 0V 25ns 1.8V)
+.control
+save all
+tran 100p 300n
+write test_inv.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  base-joint.sym # of pins=5
+** sym_path: /foss/designs/asynchronous-base/xschem/base-joint.sym
+** sch_path: /foss/designs/asynchronous-base/xschem/base-joint.sch
+.subckt base-joint VSS VDD G0 yourturn myturn
+*.ipin G0
+*.ipin myturn
+*.opin yourturn
+*.iopin VDD
+*.iopin VSS
+Mr net1 myturn VSS VSS VDD VDD yourturn sky130_fd_sc_hd__and2_0
+Go net2 yourturn VSS VSS VDD VDD net1 sky130_fd_sc_hd__and2_0
+inverter G0 VSS VSS VDD VDD net2 sky130_fd_sc_hd__clkinv_8
+.ends
+
+.end
