@@ -1,5 +1,6 @@
 ** sch_path: /foss/designs/asynchronous-base/xschem/testbench.sch
-**.subckt testbench
+**.subckt testbench out
+*.opin out
 x1 VSS VDD GO yourturn myturn base-joint
 **** begin user architecture code
 

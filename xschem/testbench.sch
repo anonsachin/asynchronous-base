@@ -26,6 +26,11 @@ unitx=1
 logx=0
 logy=0
 }
+N 510 -480 620 -480 {lab=VDD}
+N 380 -450 500 -450 {lab=GO}
+N 380 -410 500 -410 {lab=myturn}
+N 530 -390 620 -390 {lab=VSS}
+N 800 -430 960 -430 {lab=yourturn}
 C {devices/code.sym} -100 -110 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -62,3 +67,15 @@ C {lab_pin.sym} 620 -390 0 0 {name=p3 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 620 -480 0 0 {name=p4 sig_type=std_logic lab=VDD
 }
 C {lab_pin.sym} 800 -430 0 1 {name=p5 sig_type=std_logic lab=yourturn}
+C {lab_pin.sym} 380 -450 0 0 {name=p6 sig_type=std_logic lab=GO
+}
+C {lab_pin.sym} 380 -410 0 0 {name=p7 sig_type=std_logic lab=myturn
+}
+C {lab_pin.sym} 510 -480 0 0 {name=p8 sig_type=std_logic lab=VDD
+
+}
+C {lab_pin.sym} 530 -390 0 0 {name=p9 sig_type=std_logic lab=VSS
+
+
+}
+C {opin.sym} 960 -430 0 0 {name=p10 lab=out}
